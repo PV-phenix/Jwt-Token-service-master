@@ -1,0 +1,43 @@
+package com.javatechie.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.javatechie.entity.UserInfo;
+import com.javatechie.repository.UserInfoRepository;
+
+
+
+@Service
+public class UserInfoService {
+	
+	@Autowired
+    private UserInfoRepository userRepository;
+	   
+	private final PasswordEncoder passwordEncoder;
+	
+    UserInfoService(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+	
+	public List<UserInfo> getUsersInfos() {
+		return userRepository.findAll();
+	}
+	
+    public String addUser(UserInfo userInfo) {
+        userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
+        userRepository.save(userInfo);
+        return "user added to system ";
+    }
+
+	public Object findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+}

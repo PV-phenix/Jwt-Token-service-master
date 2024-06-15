@@ -1,0 +1,38 @@
+package com.javatechie.service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.javatechie.entity.ERole;
+import com.javatechie.entity.Role;
+import com.javatechie.entity.UserInfo;
+import com.javatechie.repository.RoleRepository;
+import com.javatechie.repository.UserInfoRepository;
+
+@Service
+public class RoleService {
+	
+	@Autowired
+    private RoleRepository roleRepository;
+	
+	@Autowired
+    private UserInfoRepository userInfoRepository;
+	
+//	@SuppressWarnings("unchecked")
+//	public Set<Role> getRoles() {return (Set<Role>) roleRepository.findAll();}
+
+	public Optional<Role> findByName(ERole eRole) {
+		// TODO Auto-generated method stub
+		return roleRepository.findByName(eRole) ;
+	}
+
+	public void save(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		userInfoRepository.save(userInfo);
+	}	
+
+}

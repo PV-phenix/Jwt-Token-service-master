@@ -1,0 +1,5 @@
+package com.javatechie.controller;
+
+public class AuthController {
+
+}

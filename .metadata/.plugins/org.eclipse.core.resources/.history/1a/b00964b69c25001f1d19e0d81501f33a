@@ -1,0 +1,13 @@
+package com.javatechie.service;
+
+import org.springframework.stereotype.Service;
+
+import com.javatechie.entity.Product;
+import com.javatechie.entity.Role;
+
+@Service
+public class RoleService {
+	
+	public Role getRole(int id) {}
+
+}
